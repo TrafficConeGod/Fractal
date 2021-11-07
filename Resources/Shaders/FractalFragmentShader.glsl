@@ -20,27 +20,28 @@ float ComplexMagnitude(vec2 c) {
 	return sqrt((c.x * c.x) + (c.y * c.y));
 }
 
-const int MaxIterations = 100;
+const int MaxIterations = 10000;
 
-bool Fractal(vec2 c, vec2 z, int iter) {
+int Fractal(vec2 c, vec2 z, int iter) {
 	while (iter < MaxIterations) {
 		float radius = ComplexMagnitude(z);
 		if (radius >= 2) {
-			return false;
+			return iter;
 		}
 		z = ComplexAdd(ComplexMultiply(z, z), c);
 		iter++;
 	}
-	return true;
+	return -1;
 }
 
 void main() {
-	vec2 c = vec2(uv.x - 0.5, uv.y);
+	vec2 c = vec2((uv.x * 1.77777777778) * 2, uv.y * 2);
 
-	if (Fractal(c, c, 0)) {
+	int iter = Fractal(c, c, 0);
+	if (iter == -1) {
 		color = vec3(0, 0, 0);
 	} else {
-		color = vec3(1, 1, 1);
+		color = vec3(iter, iter, iter);
 	}
 
 	// color = vec3(uv.x, uv.y, 0.0);
