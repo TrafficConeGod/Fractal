@@ -35,7 +35,9 @@ bool Fractal(vec2 c, vec2 z, int iter) {
 }
 
 void main() {
-	if (Fractal(uv, uv, 0)) {
+	vec2 c = vec2(uv.x - 0.5, uv.y);
+
+	if (Fractal(c, c, 0)) {
 		color = vec3(0, 0, 0);
 	} else {
 		color = vec3(1, 1, 1);
