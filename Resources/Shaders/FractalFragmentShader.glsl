@@ -38,23 +38,25 @@ vec3 LerpVector(vec3 a, vec3 b, float t) {
 	return a + (b - a) * t;
 }
 
+#define RgbFactor 0.00392156862
+
 const vec3 Palette[16] = vec3[16](
-	vec3(66*0.00392156862, 30*0.00392156862, 15*0.00392156862),
-    vec3(25*0.00392156862, 7*0.00392156862, 26*0.00392156862),
-    vec3(9*0.00392156862, 1*0.00392156862, 47*0.00392156862),
-    vec3(4*0.00392156862, 4*0.00392156862, 73*0.00392156862),
-    vec3(0*0.00392156862, 7*0.00392156862, 100*0.00392156862),
-    vec3(12*0.00392156862, 44*0.00392156862, 138*0.00392156862),
-    vec3(24*0.00392156862, 82*0.00392156862, 177*0.00392156862),
-    vec3(57*0.00392156862, 125*0.00392156862, 209*0.00392156862),
-    vec3(134*0.00392156862, 181*0.00392156862, 229*0.00392156862),
-    vec3(211*0.00392156862, 236*0.00392156862, 248*0.00392156862),
-    vec3(241*0.00392156862, 233*0.00392156862, 191*0.00392156862),
-    vec3(248*0.00392156862, 201*0.00392156862, 95*0.00392156862),
-    vec3(255*0.00392156862, 170*0.00392156862, 0*0.00392156862),
-    vec3(204*0.00392156862, 128*0.00392156862, 0*0.00392156862),
-    vec3(153*0.00392156862, 87*0.00392156862, 0*0.00392156862),
-    vec3(106*0.00392156862, 52*0.00392156862, 3*0.00392156862)
+	vec3(66*RgbFactor, 30*RgbFactor, 15*RgbFactor),
+    vec3(25*RgbFactor, 7*RgbFactor, 26*RgbFactor),
+    vec3(9*RgbFactor, 1*RgbFactor, 47*RgbFactor),
+    vec3(4*RgbFactor, 4*RgbFactor, 73*RgbFactor),
+    vec3(0*RgbFactor, 7*RgbFactor, 100*RgbFactor),
+    vec3(12*RgbFactor, 44*RgbFactor, 138*RgbFactor),
+    vec3(24*RgbFactor, 82*RgbFactor, 177*RgbFactor),
+    vec3(57*RgbFactor, 125*RgbFactor, 209*RgbFactor),
+    vec3(134*RgbFactor, 181*RgbFactor, 229*RgbFactor),
+    vec3(211*RgbFactor, 236*RgbFactor, 248*RgbFactor),
+    vec3(241*RgbFactor, 233*RgbFactor, 191*RgbFactor),
+    vec3(248*RgbFactor, 201*RgbFactor, 95*RgbFactor),
+    vec3(255*RgbFactor, 170*RgbFactor, 0*RgbFactor),
+    vec3(204*RgbFactor, 128*RgbFactor, 0*RgbFactor),
+    vec3(153*RgbFactor, 87*RgbFactor, 0*RgbFactor),
+    vec3(106*RgbFactor, 52*RgbFactor, 3*RgbFactor)
 );
 
 void main() {
