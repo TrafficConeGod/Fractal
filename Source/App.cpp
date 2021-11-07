@@ -49,23 +49,24 @@ int main() {
     GLuint vertexId;
     glGenBuffers(1, &vertexId);
 
+    // render
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glUseProgram(programId);
+
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexId);
+    glBufferData(GL_ARRAY_BUFFER, screenQuad.size() * sizeof(float), screenQuad.data(), GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+    
+    glDrawArrays(GL_TRIANGLES, 0, screenQuad.size());
+
+    glDisableVertexAttribArray(0);
+    //
+
+    glfwSwapBuffers(win);
+
     for (;;) {
-        // render
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        glUseProgram(programId);
-
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexId);
-        glBufferData(GL_ARRAY_BUFFER, screenQuad.size() * sizeof(float), screenQuad.data(), GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-        
-        glDrawArrays(GL_TRIANGLES, 0, screenQuad.size());
-
-        glDisableVertexAttribArray(0);
-        //
-
-        glfwSwapBuffers(win);
 	    glfwPollEvents();
 
         if (glfwWindowShouldClose(win)) {
