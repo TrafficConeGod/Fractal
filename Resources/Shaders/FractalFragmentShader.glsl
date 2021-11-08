@@ -34,10 +34,6 @@ int Fractal(vec2 c, vec2 z, int iter) {
 	return -1;
 }
 
-vec3 LerpVector(vec3 a, vec3 b, float t) {
-	return a + (b - a) * t;
-}
-
 #define RgbFactor 0.00392156862
 
 const vec3 Palette[16] = vec3[16](
