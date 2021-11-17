@@ -65,6 +65,9 @@ int main() {
         mouseX *= 2;
         mouseY *= 2;
 
+        mouseX = mouseX * 1.77777777778 * 2;
+        mouseY = mouseY * 2;
+
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glUseProgram(programId);
